@@ -1,0 +1,20 @@
+version: '3.7'
+
+services: # The services that will be executed (todo-app)
+  app:
+    image: todo-app #Aplication images
+    ports:
+      - 3000:3000 # define exposed ports
+    environment: #enviroment var for MY SQL Connection
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
+
+  mysql:
+    image: mysql:5.7
+    volumes: 
+      - C:\Users\jhonl\OneDrive\docker_learning\todo_app\multi-container\todo-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todos

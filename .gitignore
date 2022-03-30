@@ -22,7 +22,9 @@ bundles/
 .git/
 vendor/pkg/
 pyenv
-Vagrantfile
+Vagrantfile 
 *.docx
 /app_course
 .venv
+
+todo_app/multi-container/todo-mysql-data/
