@@ -7,10 +7,10 @@ WORKDIR /code
 ##Define main application
 ENV FLASK_APP=app.py 
 # Define host
-ENV FLASK_RUN=0.0.0.0
+ENV FLASK_RUN_HOST=0.0.0.0
 
 ## package management for alpine
-RUN apk --no-cache gcc musl-dev linux-headers
+RUN apk add --no-cache gcc musl-dev linux-headers
 
 ## Install dependencies
 COPY requirements.txt requirements.txt
