@@ -1,30 +1,31 @@
-version: "3.7"
+version: '3.7'
 
-#ELK : ElasticSearch - logstash -Kibana
+# ELK
 services:
 
+  # Elasticsearch
   elasticsearch:
     image: elasticsearch:7.9.2
     ports:
-      - 9200:9200
+      - '9200:9200'
     environment:
-      - discovery.type=single-mode
+      - discovery.type=single-node
     ulimits:
       memlock:
-        soft:-1
-        hard:-1
+        soft: -1
+        hard: -1
 
+  # Kibana
   kibana:
     image: kibana:7.9.2
-
     ports:
-      - 5601:5601
-      #Enviroment var are not neccesaty in this case
+      - '5601:5601'
 
+  # Logstash
   logstash:
-    image: logtash:7.9.2
+    image: logstash:7.9.2
     ports:
-      - 5000:5000
+      - '5000:5000'
     volumes:
       - type: bind
         source: .
